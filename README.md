@@ -170,6 +170,7 @@ qqline(Group3$Length)
 ```
 
 Hasil yang didapat adalah sebagai berikut:
+  
   -Group 1 (kucing oren):
   
   ![image](https://user-images.githubusercontent.com/78022264/207218589-9ce55a56-9310-40ef-973c-ff3e491c008a.png)
@@ -182,4 +183,59 @@ Hasil yang didapat adalah sebagai berikut:
   
   ![image](https://user-images.githubusercontent.com/78022264/207218664-4a9094c6-ca63-416a-94ee-8f82f94abd64.png)
 
-  
+### poin b
+*carilah atau periksalah Homogeneity of variances nya , Berapa nilai p yang didapatkan? , Apa hipotesis dan kesimpulan yang dapat diambil ?*
+
+Homogenitas varians dapat dicari menggunakan fungsi bartlett.test()
+```
+bartlett.test(Length ~ Group, data = tabel)
+```
+
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207219184-4b2dbcbb-176c-47e6-8f38-d47a928a9214.png)
+
+P-value yang didapat melebihi nilai tingkat signifikan (0.05) maka varians homogen.
+
+### poin c
+*Untuk uji ANOVA, buatlah model linier dengan Panjang versus Grup dan beri nama model tersebut model 1.*
+
+model1 didapat dari fungsi lm() dengan parameter panjang Group dan data tabel lalu dijalankan uji anova untuk model1 tersebut:
+```
+model1 <- lm(Length ~ Group, data = tabel)
+anova(model1)
+```
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207219932-123a4f89-dffb-4386-b6e7-070d7ea3d3cc.png)
+
+### poin d
+*Dari Hasil Poin C , Berapakah nilai-p ? ,  Apa yang dapat Anda simpulkan dari H0?*
+
+Berdasarkan hasil poin c didapat p-value sebesar 0.0013. p-value tersebut lebih kecil dari tingkat signifikansi (0.05) maka tolak H0
+
+### poin e
+*Verifikasilah jawaban model 1 dengan Post-hooc test TukeyHSD ,  dari nilai p yang didapatkan apakah satu jenis kucing lebih panjang dari yang lain? Jelaskan.*
+
+Digunakan g fungsi Tukey dengan argumen aov(model1) yang telah didapat sebelumnya:
+```
+TukeyHSD(aov(model1))
+```
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207220580-96d18ffe-0e4e-41fb-b566-f542950f56b4.png)
+
+
+### poin f
+*Visualisasikan data dengan ggplot2*
+
+Visualisasi menggunakan fungsi ggplot2():
+```
+ggplot(tabel, aes(Group, Length)) + geom_boxplot() + scale_x_discrete() + xlab("Group") + ylab("Length (cm)")
+```
+
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207221078-6e955e47-38fb-4b8b-adea-16aa179c057d.png)
+
+# Nomor 5
