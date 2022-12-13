@@ -68,6 +68,8 @@ Hasil yang didapat adalah sebagai berikut:
 ### poin c
 *Buatlah kesimpulan berdasarkan P-Value yang dihasilkan!*
 
+p-value yang didapat lebih kecil dibanding tingkat signifikansi, maka terima H0
+
 ## Nomor 3
 Diketahui perusahaan memiliki seorang data analyst ingin memecahkan permasalahan pengambilan keputusan dalam perusahaan tersebut. Selanjutnya didapatkanlah data berikut dari perusahaan saham tersebut.
 
