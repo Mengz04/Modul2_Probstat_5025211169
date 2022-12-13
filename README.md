@@ -55,7 +55,7 @@ Hasil yang didapat adalah sebagai berikut:
 ![image](https://user-images.githubusercontent.com/78022264/207207978-452cc360-484d-49fc-852d-3f4d04cf1a1b.png)
 
 ### poin b
-*Jelaskan maksud dari output yang dihasilkan! *
+*Jelaskan maksud dari output yang dihasilkan!*
 
 Berdasarkan confidence interval yang didapat dengan asumsi tingkat signifikansi 𝛼 = 5%, klaim rata-rata *"lebih dari 20000"* masih masuk pada confidence interval sehingga **klaim diterima**. Kode program pembuktian identik dengan penjelasan pada poin a menggunakan fungsi tsum.test() dengan parameter yang sudah diinputkan pada poin sebelumnya
 ```
