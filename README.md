@@ -239,3 +239,84 @@ Hasil yang didapat adalah sebagai berikut:
 ![image](https://user-images.githubusercontent.com/78022264/207221078-6e955e47-38fb-4b8b-adea-16aa179c057d.png)
 
 # Nomor 5
+Data yang digunakan merupakan hasil eksperimen yang dilakukan untuk mengetahui pengaruh suhu operasi (100˚C, 125˚C dan 150˚C) dan tiga jenis kaca pelat muka (A, B dan C) pada keluaran cahaya tabung osiloskop. Percobaan dilakukan sebanyak 27 kali dan didapat data sebagai berikut: Data Hasil Eksperimen.
+
+Pertama import library dan file data:
+```
+library(ggplot2)
+library(dplyr)
+library(multcompView)
+library(readr)
+GTL <- read.csv("GTL.csv")
+head(GTL)
+str(GTL)
+```
+
+### poin a
+*Buatlah plot sederhana untuk visualisasi data*
+
+visualisasi menggunakan fungsi qplot():
+```
+qplot(x = Temp, y = Light, geom = "point", data = GTL) + facet_grid(.~Glass, labeller = label_both)
+```
+
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207224014-c7d4dbf1-a9fe-4fdb-a160-673f482231a4.png)
+
+### poin b
+*Lakukan uji ANOVA dua arah untuk 2 faktor*
+
+Untuk melakukan uji anova dua arah dibutuhkan factor independen, factor dapat didapat dari fungsi as.factor(). Lalu dapat dilakukan uji anova dengan analisis varians dengan aov().
+```
+GTL$Glass <- as.factor(GTL$Glass)
+GTL$Temp_Factor <- as.factor(GTL$Temp)
+str(GTL)
+anova <- aov(Light ~ Glass*Temp_Factor, data = GTL)
+summary(anova)
+```
+
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207224744-ff7326dd-ca23-498c-8759-af6f46921afb.png)
+
+### poin c
+*Tampilkan tabel dengan mean dan standar deviasi keluaran cahaya untuk setiap perlakuan (kombinasi kaca pelat muka dan suhu operasi)*
+
+Dilakukan fungsi group-by() dengan argumen file GTL, Glass, dan Temp dengan masing-masing mean dan standar devias menggunakan summarise():
+```
+hasil <- group_by(GTL, Glass, Temp) %>% summarise(mean = mean(Light), sd = sd(Light)) %>% arrange(desc(mean))
+print(hasil)
+```
+
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207225248-8ecdf1b2-68d7-4ab3-8456-6b26c1126f0e.png)
+
+### poin d
+*Lakukan uji Tukey*
+
+Dilakukan uji tukey menggunakan fungsi Tukey()
+```
+tukey <- TukeyHSD(anova)
+print(tukey)
+```
+
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207225457-fca3a8a6-d727-4978-be17-74008dc7d1a0.png)
+
+### poin e
+*Gunakan compact letter display untuk menunjukkan perbedaan signifikan antara uji Anova dan uji Tukey*
+```
+tukey.cld <- multcompLetters4(anova, tukey)
+print(tukey.cld)
+
+cld <- as.data.frame.list(tukey.cld$`Glass:Temp_Factor`)
+hasil$Tukey <- cld$Letters
+print(hasil)
+```
+
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207225640-56d63f62-ae81-4bc7-9425-ee115eef5112.png)
