@@ -131,11 +131,55 @@ Keputusan yang diambil berdasarkan uji statistik yand telah dilakukan adalah tol
 Dapat disimpulkan bahwa terdapat perbedaan rata-rata sehingga μ1 =/= μ2
 
 ## Nomor 4
-*Seorang Peneliti sedang meneliti spesies dari kucing di ITS . Dalam penelitiannya ia mengumpulkan data  tiga spesies kucing yaitu kucing oren, kucing hitam dan kucing putih dengan panjangnya masing-masing. 
+Seorang Peneliti sedang meneliti spesies dari kucing di ITS . Dalam penelitiannya ia mengumpulkan data  tiga spesies kucing yaitu kucing oren, kucing hitam dan kucing putih dengan panjangnya masing-masing. 
 Jika : 
 
 diketahui dataset  https://intip.in/datasetprobstat1 
 H0 : Tidak ada perbedaan panjang antara ketiga spesies atau rata-rata panjangnya sama    
 
-Maka Kerjakan atau Carilah:*
+Tahap pertama adalah dengan memanggil library dan file yang akan digunakan pada poin-poin berikutnya:
+```
+library("ggplot2")
+tabel <- read.table(url("https://rstatisticsandresearch.weebly.com/uploads/1/0/2/6/1026585/onewayanova.txt"), h=T)
+attach(tabel)
+names(tabel)
+```
 ### poin a
+*Buatlah masing masing jenis spesies menjadi  3 subjek "Grup" (grup 1,grup 2,grup 3). Lalu Gambarkan plot kuantil normal untuk setiap kelompok dan lihat apakah ada outlier utama dalam homogenitas varians.*
+
+
+Grouping dilakukan menggunakan fungsi subset dengan pencocokan nama group dari data tabel. Plot quartil normal menggunakan fungsi qqnorm() dan qqline() pada tiap group.
+```
+tabel$Group <- as.factor(tabel$Group)
+tabel$Group = factor(tabel$Group, labels = c("Kucing Oren", "Kucing Hitam", "Kucing Putih"))
+
+class(tabel$Group)
+
+Group1 <- subset(tabel, Group == "Kucing Oren")
+Group2 <- subset(tabel, Group == "Kucing Hitam")
+Group3 <- subset(tabel, Group == "Kucing Putih")
+
+qqnorm(Group1$Length)
+qqline(Group1$Length)
+
+qqnorm(Group2$Length)
+qqline(Group2$Length)
+
+qqnorm(Group3$Length)
+qqline(Group3$Length)
+```
+
+Hasil yang didapat adalah sebagai berikut:
+  -Group 1 (kucing oren):
+  
+  ![image](https://user-images.githubusercontent.com/78022264/207218589-9ce55a56-9310-40ef-973c-ff3e491c008a.png)
+
+  -Group 2 (kucing hitam):
+  
+  ![image](https://user-images.githubusercontent.com/78022264/207218624-935dc92f-86fd-46ec-a07b-c07d56ea8096.png)
+
+  -Group 3 (kucing putih):
+  
+  ![image](https://user-images.githubusercontent.com/78022264/207218664-4a9094c6-ca63-416a-94ee-8f82f94abd64.png)
+
+  
