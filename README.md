@@ -1,6 +1,7 @@
 # Modul2_Probstat_5025211169
 ## Nomor 1
 Seorang peneliti melakukan penelitian mengenai pengaruh aktivitas 𝐴 terhadap kadar saturasi oksigen pada manusia. Peneliti tersebut mengambil sampel sebanyak 9 responden. Pertama, sebelum melakukan aktivitas 𝐴, peneliti mencatat kadar saturasi oksigen dari 9 responden tersebut. Kemudian, 9 responden tersebut diminta melakukan aktivitas 𝐴. Setelah 15 menit, peneliti tersebut mencatat kembali kadar saturasi oksigen dari 9 responden tersebut. Berikut data dari 9 responden mengenai kadar saturasi oksigen sebelum dan sesudah melakukan aktivitas 𝐴 
+
 ![image](https://user-images.githubusercontent.com/78022264/207190218-c52c0712-21e2-4af7-af60-65d5f61c2264.png)
 
 Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen  dari responden ke-3 ketika belum melakukan aktivitas 𝐴 sebanyak 67, dan setelah melakukan aktivitas 𝐴 sebanyak 70.
@@ -17,6 +18,7 @@ delta <- y-x
 sd(delta)
 ```
 Hasil yang didapat adalah sebagai berikut:
+
 ![image](https://user-images.githubusercontent.com/78022264/207193061-c51c9ab0-0e36-4ba0-98ab-b0f2b7d4a9f5.png)
 
 ### poin b
@@ -27,6 +29,7 @@ Pasangan data x dan y dari poin sebelumnya dicari p-value nya dengan memanfaatka
 t.test(y, x, paired = TRUE)
 ```
 Hasil yang didapat adalah sebagai berikut:
+
 ![image](https://user-images.githubusercontent.com/78022264/207196427-795e843b-baa0-405c-ac23-0ae26df9167b.png)
 
 ### poin c
@@ -48,6 +51,7 @@ sdx <- 3900
 tsum.test(meanx, sdx, nx, var.equal = TRUE, mu = 20000)
 ```
 Hasil yang didapat adalah sebagai berikut:
+
 ![image](https://user-images.githubusercontent.com/78022264/207207978-452cc360-484d-49fc-852d-3f4d04cf1a1b.png)
 
 ### poin b
@@ -58,6 +62,7 @@ Berdasarkan confidence interval yang didapat dengan asumsi tingkat signifikansi 
 tsum.test(meanx, sdx, nx, var.equal = TRUE, mu = 20000)
 ```
 Hasil yang didapat adalah sebagai berikut:
+
 ![image](https://user-images.githubusercontent.com/78022264/207207991-026149de-e5ba-41f4-ace8-31566014af6a.png)
 
 ### poin c
