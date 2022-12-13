@@ -7,6 +7,7 @@ Berdasarkan data pada tabel diatas, diketahui kadar saturasi oksigen  dari respo
 
 ### poin a
 *Carilah Standar Deviasi dari data selisih pasangan pengamatan tabel diatas*
+
 Tahap pertama adalah dengan mencari selisih dari data yang berpasangan. Data dari tabel tersebut dimasukkan dalam sebuah vektor x dan y yang nantinya akan dicari selisihnya dan dicari standar deviasinya.
 ```
 x <- c(78, 75, 67, 77, 70, 72, 78, 74, 77)
