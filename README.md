@@ -67,5 +67,61 @@ Hasil yang didapat adalah sebagai berikut:
 
 ### poin c
 *Buatlah kesimpulan berdasarkan P-Value yang dihasilkan!*
+------
+
+## Nomor 3
+Diketahui perusahaan memiliki seorang data analyst ingin memecahkan permasalahan pengambilan keputusan dalam perusahaan tersebut. Selanjutnya didapatkanlah data berikut dari perusahaan saham tersebut.
+
+![image](https://user-images.githubusercontent.com/78022264/207210448-250505c6-764d-4066-8427-f207010d39ff.png)
+
+Dari data diatas berilah keputusan serta kesimpulan yang didapatkan dari hasil diatas. Asumsikan nilai variancenya sama, apakah ada perbedaan pada rata-ratanya (α= 0.05)? Buatlah:
+### poin a
+*H0 dan H1*
+  - H0: μ1 == μ2 (rata-rata saham di Bandung sama dengan di Bali)
+  - H1: μ1 =/= μ2 (rata-rata saham di Bandung tidak sama dengan di Bali)
+
+### poin b
+*Hitung Sampel Statistik*
+
+Data statistik yang diberikan akan dihitung untuk mendapat perbedaan mean x dan y dengan asumsi tingkat signifikansi 0.05
+```
+nx <-19
+meanx <- 3.64
+sdx <- 1.67
+
+ny<-27
+meany <- 2.79
+sdy <- 1.32
+tsum.test(meanx, sdx, nx, meany , sdy, ny,alternative = "greater", var.equal = TRUE)
+```
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207212206-793b693e-ff00-48b1-8ded-f1127a7371b2.png)
+
+### poin c
+*Lakukan Uji Statistik (df =2)*
+
+Untuk melakukan uji statistik dengan *df = 2* maka digunakan fungsi plotDist dari Mosaic library untuk mendapatkan visualisasi grafiknya
+```
+plotDist(dist ='t', df =2)
+```
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207213046-d233a736-1925-40f6-8ad0-bba8a8cae231.png)
+
+### poin d
+*Nilai Kritikal*
+
+Nilai kritikal didapat dengan memanfaatkan fungsi qchisq dengan nilai df custom bernilai 2
+```
+alpha <- 0.05
+qchisq(alpha, df =2, lower.tail = FALSE)
+```
+Hasil yang didapat adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/78022264/207213387-7b748fc5-1d09-44c5-8fa8-75710bd705eb.png)
+
+### poin e
+
 
 
