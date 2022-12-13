@@ -82,7 +82,7 @@ Dari data diatas berilah keputusan serta kesimpulan yang didapatkan dari hasil d
 ### poin b
 *Hitung Sampel Statistik*
 
-Data statistik yang diberikan akan dihitung untuk mendapat perbedaan mean x dan y dengan asumsi tingkat signifikansi 0.05
+Data statistik yang diberikan akan dihitung untuk mendapat perbedaan mean x (bandung) dan y (bali) dengan tingkat signifikansi 0.05
 ```
 nx <-19
 meanx <- 3.64
@@ -121,6 +121,21 @@ Hasil yang didapat adalah sebagai berikut:
 ![image](https://user-images.githubusercontent.com/78022264/207213387-7b748fc5-1d09-44c5-8fa8-75710bd705eb.png)
 
 ### poin e
+*keputusan*
 
+Keputusan yang diambil berdasarkan uji statistik yand telah dilakukan adalah tolak H0 dan terima H1
 
+### poin f
+*kesimpulan*
 
+Dapat disimpulkan bahwa terdapat perbedaan rata-rata sehingga μ1 =/= μ2
+
+## Nomor 4
+*Seorang Peneliti sedang meneliti spesies dari kucing di ITS . Dalam penelitiannya ia mengumpulkan data  tiga spesies kucing yaitu kucing oren, kucing hitam dan kucing putih dengan panjangnya masing-masing. 
+Jika : 
+
+diketahui dataset  https://intip.in/datasetprobstat1 
+H0 : Tidak ada perbedaan panjang antara ketiga spesies atau rata-rata panjangnya sama    
+
+Maka Kerjakan atau Carilah:*
+### poin a
